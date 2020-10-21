@@ -79,6 +79,11 @@ nav div {
     height: 30px;
     flex-grow: 4;
     padding: 10px;
+    
+}
+
+nav div div{
+    background-color: white;
 }
 
 nav div img {
@@ -109,9 +114,35 @@ nav div.search-container > button {
 }
 
 nav div.avatar-container {
-    margin-right: 15px;
+    background-color: red;
+    width: 0px;
+    margin-right: 0px;
     text-align: right;
+    
 }
+#avatar-container{
+    width: 1%;
+}
+
+#avatar-button{
+    height: 30px; 
+    width: 30px; 
+    margin-left: 80%; 
+    border-radius: 50%;
+}
+
+.avatar-info{
+    visibility: visible !important;
+    width: max-content;
+    background-color: #ffff00
+}
+#avatar-info{
+    visibility: hidden;
+    background-color: transparent;
+    margin-top: -10px;
+    display: initial;
+}
+
 
 .main-container {
     width: 50%;
