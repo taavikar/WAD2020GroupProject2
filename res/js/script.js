@@ -31,6 +31,22 @@ $(async function () {
 
 //========== Task 2
 
+$(async function () {
+
+    // Load the posts from PostIt API
+    const posts = await loadPosts();
+
+    // Make a div.post element for each post (type JSON Object)
+    posts.forEach(addPost);
+
+    // When posts have been made, add listeners for like buttons (didn't find a jQuery way for this part tough)
+    let likeButtons = document.getElementsByClassName("like-button");
+    for (let i = 0; i < likeButtons.length; i++) {
+                                // if clicked       call a function   that toggles class
+        likeButtons[i].addEventListener("click", () => this.classList.toggle("liked"));
+    }
+});
+
 function loadPosts() {
     return $.get(
         {
@@ -42,6 +58,9 @@ function loadPosts() {
 }
 
 function addPost(post) {
+
+    // Data for post
+
     const avatarURL = post.author.avatar;
     const authorName = post.author.firstname + " " + post.author.lastname;
     const date = post.createTime;
@@ -53,6 +72,8 @@ function addPost(post) {
     }
     const postTitle = (post.text != null) ? post.text : "";
     const likes = post.likes;
+
+    // Filling the div elements
 
     let postHTML = '<div class="post">' +
         '             <div class="post-author">' +
@@ -69,14 +90,12 @@ function addPost(post) {
         '               <h3>' + postTitle + '</h3>' +
         '             </div>' +
         '             <div class="post-actions">' +
-        '               <button type="button" name="like" class="like-button">' + likes + '</button>' +
+        '               <button type="button" id="like-button' + post.id + '" ' +
+        '                                                                name="like" class="like-button">'
+                          + likes +
+        '               </button>' +
         '             </div>' +
         '           </div>';
 
     $(".main-container").append(postHTML);
 }
-
-$(async function () {
-    const posts = await loadPosts();
-    posts.forEach(addPost);
-});
