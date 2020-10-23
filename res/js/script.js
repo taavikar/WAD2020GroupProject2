@@ -32,18 +32,16 @@ $(async function () {
 //========== Task 2
 
 $(async function () {
-
-    // Load the posts from PostIt API
+    // Load posts from PostIt API
     const posts = await loadPosts();
-
-    // Make a div.post element for each post (type JSON Object)
+    // Add a div.post element to html for each post (type JSON object)
     posts.forEach(addPost);
-
-    // When posts have been made, add listeners for like buttons (didn't find a jQuery way for this part tough)
-    let likeButtons = document.getElementsByClassName("like-button");
-    for (let i = 0; i < likeButtons.length; i++) {
-                                // if clicked       call a function   that toggles class
-        likeButtons[i].addEventListener("click", () => this.classList.toggle("liked"));
+    // Add listener for each like button. (didn't find a good JQuery way for this tough)
+    let temp = document.getElementsByClassName("like-button");
+    for (let i = 0; i < temp.length; i++) {
+        temp[i].addEventListener("click", function () {
+            this.classList.toggle("liked");
+        });
     }
 });
 
