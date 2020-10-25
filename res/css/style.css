@@ -151,7 +151,13 @@ nav div.avatar-container {
     padding: 90px 15px 15px 15px;
     background-color: #ffffff;
 }
-
+.user-container {
+    width: 50%;
+    min-height: 100%;
+    margin: auto auto;
+    padding: 90px 15px 15px 15px;
+    background-color: #ffffff;
+}
 .post {
     width: 80%;
     margin: 15px auto;
