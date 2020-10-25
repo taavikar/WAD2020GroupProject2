@@ -97,3 +97,36 @@ function addPost(post) {
 
     $(".main-container").append(postHTML);
 }
+//========== Task 3
+function loadUsers() {
+    return $.get(
+        {
+            url: "https://private-anon-c71abc3c34-wad20postit.apiary-mock.com/profiles",
+            success: response => response,
+            error: () => alert("Could not load posts")
+        }
+    )
+}
+function addUser(user) {
+    const avatarURL = user.avatar;
+    const userName = user.firstname + " " + user.lastname;
+    let userHTML = '<div class="users">' + 
+    '                   <div class= "userImage">' +
+    '                       <img src= "'+ avatarURL + '" class= "img" alt="User image">' +
+    '                   </div>' +
+    '                       <div class="userName">' + userName + '</div>' +
+    '               <div class="followButton">' +
+    '                   <button type="button" name="follow" class="follow-button" id='+ user.firstname +"_follow" + '>' + 'Follow' + '</button>' + 
+    '               </div>'+
+    '             </div>';     
+
+    $(".user-container").append(userHTML);
+    $("#"+user.firstname+"_follow").on("click", function(){
+        $("#"+user.firstname+"_follow").toggleClass("follow-button button-clicked");
+        console.log("print");
+    })
+}
+$(async function () {
+    const users = await loadUsers();
+    users.forEach(addUser);
+});

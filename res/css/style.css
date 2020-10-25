@@ -233,3 +233,52 @@ nav div.avatar-container {
 .like-button.liked {
     background-color: #01579b;
 }
+
+.users{
+    margin: 1%;
+    display: inline-flex;
+    width: 45%;
+    border-radius: 10px;
+    border: 1px solid rgba(38, 50, 56, 0.123);
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.users .userImage{
+    margin-top: 1%;
+    margin-bottom: 5%;
+    object-fit: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.users .img{
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+.users .userName{
+    font-weight: bold;
+    font-size: 150%;
+    margin-bottom: 5%;
+}
+
+.follow-button{
+    background-color: #830d9b;
+    border: none;
+    color: white;
+    width: 100%;
+    padding: 10px 25px;
+    font-size: 18px;
+}
+.button-clicked{
+    background-color: white;
+    color: #830d9b;
+    width: 100%;
+    padding: 10px 25px;
+    font-size: 18px;
+    outline-style: solid;
+    outline-color: #830d9b;
+    outline-width: 2px;
+}
